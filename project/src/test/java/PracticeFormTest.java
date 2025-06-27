@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
+import static com.codeborne.selenide.CollectionCondition.exactTexts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -36,6 +37,23 @@ public class PracticeFormTest {
         $("#stateCity-wrapper").$(byText("Agra")).click();
         $("#submit").click();
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $("body > div.fade.modal.show > div > div > div.modal-body").
+                $$(".table-responsive tr").shouldHave(
+                        exactTexts(
+                                "Label Values",
+                                "Student Name Sergey Shikanov",
+                                "Student Email sshik@mail.ru",
+                                "Gender Male",
+                                "Mobile 9779571011",
+                                "Date of Birth 20 June,1962",
+                                "Subjects Maths, Biology",
+                                "Hobbies Sports",
+                                "Picture AAVEUSDT_2024-12-03_07-49-26.png",
+                                "Address Moscow",
+                                "State and City Uttar Pradesh Agra"
+                        )
+                );
+        actions().moveToElement($("#closeLargeModal")).click().perform();
 
 
 
