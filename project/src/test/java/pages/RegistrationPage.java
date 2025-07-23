@@ -72,7 +72,7 @@ public class RegistrationPage {
         picturesInput.uploadFile(file);
     }
 
-    public void setAdress(String value) {
+    public void setAddress(String value) {
         adressInput.setValue(value);
     }
 
@@ -81,7 +81,7 @@ public class RegistrationPage {
         stateCityWrapper.$(byText(value)).click();
     }
 
-    public void setcity(String value) {
+    public void setCity(String value) {
         cityInput.click();
         stateCityWrapper.$(byText(value)).click();
     }
